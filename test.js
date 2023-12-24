@@ -11,12 +11,16 @@ const hostname = 'localhost';
   
 // Creating Server  
 const server = http.createServer((req,res)=>{ 
-  
     // Handling Request and Response  
     res.statusCode=200; 
     res.setHeader('Content-Type', 'text/plain');
     res.end("Welcome to Geeks For Geeks");
-    console.log(`Received request: ${req.method} ${req.url}`);
+    // Construct the full URL
+    const protocol = req.connection.encrypted ? 'https' : 'http';
+    const host = req.headers['host'];
+    const fullUrl = `${protocol}://${host}${req.url}`;
+
+    console.log(`Received request: ${req.method} ${fullUrl}`);
 }); 
   
 // Making the server to listen to required 
