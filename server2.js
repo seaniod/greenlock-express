@@ -29,16 +29,14 @@ function httpsWorker(glx) {
 
     // Get the raw http server:
     var httpServer = glx.httpServer(function(req, res) {
+        // Construct the full URL for logging
+        const fullUrl = `http://${req.headers.host}${req.url}`;
+        console.log(`Received HTTP request: ${req.method} ${fullUrl}`);
+    
+        // Perform the redirect
         res.statusCode = 301;
         res.setHeader("Location", "https://" + req.headers.host + req.url);
         res.end("Insecure connections are not allowed. Redirecting...");
-    
-        // Construct the full URL for logging
-        const protocol = req.connection.encrypted ? 'https' : 'http';
-        const host = req.headers['host'];
-        const fullUrl = `${protocol}://${host}${req.url}`;
-    
-        console.log(`Received request: ${req.method} ${fullUrl}`);
     });
     
     httpServer.listen(8066, "0.0.0.0", function() {
