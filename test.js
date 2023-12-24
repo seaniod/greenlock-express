@@ -2,7 +2,7 @@
 const http = require('http'); 
   
 // Setting Port Number as 80  
-const port = 8066; 
+const port = 8066;  // minardo server remaps 80 to 8066
   
 // Setting hostname as the localhost 
 // NOTE: You can set hostname to something  
