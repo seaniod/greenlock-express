@@ -21,7 +21,7 @@ require("greenlock-express")
     })
     .ready(httpsWorker);
 
-function httpsWorker(glx) {
+function httpsWorker(glx) {  
     //
     // HTTP can only be used for ACME HTTP-01 Challenges
     // (and it is not required for DNS-01 challenges)
@@ -29,17 +29,24 @@ function httpsWorker(glx) {
 
     // Get the raw http server:
     var httpServer = glx.httpServer(function(req, res) {
-        res.statusCode = 301;
-        res.setHeader("Location", "https://" + req.headers.host + req.path);
-        res.end("Insecure connections are not allowed. Redirecting...");
-
+        // Detailed logging to diagnose the issue
+        console.log(`Received HTTP request: ${req.method}`);
+        console.log(`Host: ${req.headers.host}`);
+        console.log(`URL: ${req.url}`);
+        
         // Construct the full URL for logging
-        const protocol = req.connection.encrypted ? 'https' : 'http';
-        const host = req.headers['host'];
-        const fullUrl = `${protocol}://${host}${req.url}`;
-        console.log(`Received request: ${req.method} ${fullUrl}`);
+        const fullUrl = `http://${req.headers.host}${req.url}`;
+        console.log(`Full URL: ${fullUrl}`);
+    
+        // Perform the redirect
+        res.statusCode = 301;
+        const redirectUrl = "https://" + req.headers.host + req.url;
+        res.setHeader("Location", redirectUrl);
+        res.end("Redirecting to secure connection...");
+    
+        console.log(`Redirecting to: ${redirectUrl}`);
     });
-
+    
     httpServer.listen(8066, "0.0.0.0", function() {
         console.info("Listening on ", httpServer.address());
     });
