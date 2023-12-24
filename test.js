@@ -14,8 +14,9 @@ const server = http.createServer((req,res)=>{
   
     // Handling Request and Response  
     res.statusCode=200; 
-    res.setHeader('Content-Type', 'text/plain') 
-    res.end("Welcome to Geeks For Geeks") 
+    res.setHeader('Content-Type', 'text/plain');
+    res.end("Welcome to Geeks For Geeks");
+    console.log(`Received request: ${req.method} ${req.url}`);
 }); 
   
 // Making the server to listen to required 
