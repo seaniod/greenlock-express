@@ -1,0 +1,28 @@
+{
+  "defaults": {
+    "store": {
+      "module": "greenlock-store-fs"
+    },
+    "challenges": {
+      "http-01": {
+        "module": "acme-http-01-standalone"
+      }
+    },
+    "renewOffset": "-45d",
+    "renewStagger": "3d",
+    "accountKeyType": "EC-P256",
+    "serverKeyType": "RSA-2048",
+    "subscriberEmail": "contact@minardo.org",
+    "agreeToTerms": true
+  },
+  "sites": [
+    {
+      "subject": "m-url.org",
+      "altnames": [
+        "m-url.org",
+        "www.m-url.org"
+      ],
+      "renewAt": 1
+    }
+  ]
+}

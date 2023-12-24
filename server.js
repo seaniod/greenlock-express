@@ -1,0 +1,27 @@
+"use strict";
+ 
+const greenlock = require('greenlock-express');
+
+const glx = greenlock.init({
+    packageRoot: __dirname,
+    configDir: './certificates',
+    maintainerEmail: 'contact@minardo.org',
+    cluster: false,
+    packageAgent: 'greenlock-express/v4.0.0'
+});
+
+
+const app = require('express')();
+
+app.use('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+ // Get's SSL certificates 'magically'
+glx.serve(app);
+
+// you need to run the following
+// npx greenlock add --subject minardo.org --altnames minardo.org,www.minardo.org
+
+//Public Accessibility: For Let's Encrypt to validate your domain using the HTTP-01 challenge, your server must be publicly accessible on the internet, specifically on port 80. Ensure that your DNS settings are correct, and your domain (e.g., m-url.org) points to the server where greenlock-express is running.
+//Firewall and Port Forwarding: Check if the server's firewall settings allow inbound connections on port 80. If you are behind a router or a firewall, ensure that port 80 is forwarded to your server.
