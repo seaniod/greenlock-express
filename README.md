@@ -1,5 +1,5 @@
 # enable nodejs to use port 80
-sudo setcap 'cap_net_bind_service=+ep' $(which node)
+``sudo setcap 'cap_net_bind_service=+ep' $(which node)'``
 
 # set up for greenlock
 From the [docs](https://git.rootprojects.org/root/greenlock-express.js.git):
