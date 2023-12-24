@@ -32,6 +32,13 @@ function httpsWorker(glx) {
         res.statusCode = 301;
         res.setHeader("Location", "https://" + req.headers.host + req.path);
         res.end("Insecure connections are not allowed. Redirecting...");
+
+        // Construct the full URL
+        const protocol = req.connection.encrypted ? 'https' : 'http';
+        const host = req.headers['host'];
+        const fullUrl = `${protocol}://${host}${req.url}`;
+
+        console.log(`Received request: ${req.method} ${fullUrl}`);
     });
 
     httpServer.listen(8066, "0.0.0.0", function() {
