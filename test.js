@@ -7,7 +7,7 @@ const port = 80;
 // Setting hostname as the localhost 
 // NOTE: You can set hostname to something  
 // else as well, for example, say 127.0.0.1 
-const hostname = 'localhost'; 
+const hostname = '0.0.0.0'; 
   
 // Creating Server  
 const server = http.createServer((req,res)=>{ 
