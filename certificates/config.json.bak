@@ -12,17 +12,7 @@
     "renewStagger": "3d",
     "accountKeyType": "EC-P256",
     "serverKeyType": "RSA-2048",
-    "subscriberEmail": "contact@minardo.org",
-    "agreeToTerms": true
+    "subscriberEmail": "contact@minardo.org"
   },
-  "sites": [
-    {
-      "subject": "m-url.org",
-      "altnames": [
-        "m-url.org",
-        "www.m-url.org"
-      ],
-      "renewAt": 1
-    }
-  ]
+  "sites": []
 }

@@ -11,17 +11,7 @@
     "renewOffset": "-45d",
     "renewStagger": "3d",
     "accountKeyType": "EC-P256",
-    "serverKeyType": "RSA-2048",
-    "subscriberEmail": "contact@minardo.org"
+    "serverKeyType": "RSA-2048"
   },
-  "sites": [
-    {
-      "subject": "minardo.org",
-      "altnames": [
-        "minardo.org",
-        "www.minardo.org"
-      ],
-      "renewAt": 1
-    }
-  ]
+  "sites": []
 }
