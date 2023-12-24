@@ -2,7 +2,7 @@
 const http = require('http'); 
   
 // Setting Port Number as 80  
-const port = 80; 
+const port = 8066; 
   
 // Setting hostname as the localhost 
 // NOTE: You can set hostname to something  
@@ -26,7 +26,6 @@ const server = http.createServer((req,res)=>{
 // Making the server to listen to required 
 // hostname and port number 
 server.listen(port,hostname,()=>{ 
-  
     // Callback  
     console.log(`Server running at http://${hostname}:${port}/`); 
 });
