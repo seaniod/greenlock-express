@@ -11,7 +11,7 @@
 // Use glx.httpServer(redirectToHttps) instead.
 
 //require("greenlock-express")
-require("./")
+require("../")
     .init({
         packageRoot: __dirname,
         configDir: "./greenlock.d",
