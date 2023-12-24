@@ -8,6 +8,7 @@ const glx = greenlock.init({
     maintainerEmail: 'contact@minardo.org',
     cluster: false,
     packageAgent: 'greenlock-express/v4.0.0',
+    agreeTos: true,
     approveDomains: ['minardo.org', 'www.minardo.org']
 });
 
