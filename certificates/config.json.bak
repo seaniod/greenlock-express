@@ -14,5 +14,14 @@
     "serverKeyType": "RSA-2048",
     "subscriberEmail": "contact@minardo.org"
   },
-  "sites": []
+  "sites": [
+    {
+      "subject": "minardo.org",
+      "altnames": [
+        "minardo.org",
+        "www.minardo.org"
+      ],
+      "renewAt": 1
+    }
+  ]
 }
