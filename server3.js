@@ -3,7 +3,7 @@
 var app = require('./app.js');
 
 function approveDomains(opts, certs, callback) {
-    if(!/^(www\.)?test\.minardo\.org$/) {
+    if(!/^(www\.)?minardo\.org$/.test(opts.domains)) {
         callback(new Error(`no config for '${opts.domain}'`));
         return;
     }
@@ -28,5 +28,4 @@ var greenlock = require('greenlock-express').init({
 });
 
 // Get & update certificates automatically
-// var server = greenlock.listen(80, 443); 
 var server = greenlock.serve(app); 
